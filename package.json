@@ -1,0 +1,35 @@
+{
+  "name": "dsh-font-picker",
+  "version": "0.2.0",
+  "description": "在「设置 → General」加两行字体选择（UI 字体 / 代码字体）：枚举系统已装字体、选完即时套用、持久化，并可重新枚举。0.2.1 迁移版：webServer.tapIndex/register 与 settings.general.item slot 均未变，代码原封不动。",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "engines": {
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT"
+}

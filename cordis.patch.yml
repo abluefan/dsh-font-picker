@@ -1,0 +1,13 @@
+# dsh-font-picker 自带的 patch 文件 —— ⚠ 目前**不会生效**，故意留着备用。
+#
+# 为什么不生效：本插件靠 $DSH_HOME\profiles\web\cordis.patch.yml 里的 insert 行挂载
+# （跟 dsh-address-rewrite / dsh-live-docs 的装法一样）。而一个包自带的 patch 文件，
+# 只有在它带 `dsh.bundle.patch` 牌、且包名进了 `dsh.profile.bundles` 时才会被读。
+#
+# ⚠ **不要**为了「让这个文件生效」而给 package.json 加 `dsh.bundle` —— 那会让
+#   `dsh plugin` 把包名塞进 dsh.profile.bundles，bundles 层再 insert 一次同一个 id，
+#   与 profiles\web 那条 insert 撞车 ⇒ duplicate loader entry id ⇒ boot 硬失败。
+#   （2026-09-16 撞过两次，详见 README 的「安装」一节的警告）
+- insert:
+    - id: font-picker
+      name: 'dsh-font-picker'
